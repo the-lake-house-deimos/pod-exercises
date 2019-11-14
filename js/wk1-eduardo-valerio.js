@@ -1,5 +1,3 @@
-const fruits = ["cantaloupe", "orange", "date", "elderberry", "ugli fruit", "pineapple"];
-
 const customers = [
     {
         name: "Fred",
@@ -62,6 +60,8 @@ const family = [
     },
 ];
 
+const fruits = ["cantaloupe", "orange", "date", "elderberry", "ugli fruit", "pineapple"];
+
 // Create a function makeSuperPet() that takes in the pets array as input and returns a single pet object with the following shape...
 //
 // {
@@ -107,3 +107,35 @@ console.log(makeSuperPet(pets));
 // Create a function that when given an array of strings, returns an array of objects with properties
 // for the given string value and the length of the string and the string without vowels (not including y)
 
+function createObject(arr){
+    const arrayStringObject = arr.reduce((stringProperty, str) => {
+        let myObject = [];
+        myObject['original'] = str;
+        myObject['length'] = str.length;
+        myObject['no-vowels'] = takeOutVowels(str);
+
+        stringProperty.push(myObject);
+
+        return stringProperty;
+
+    }, []);
+
+    return arrayStringObject;
+}
+
+function takeOutVowels(str){
+    let bucket = [];
+
+    for(let x = 0; x < str.length; x++){
+
+        let word = str.substring(x, x + 1).toLowerCase();
+
+        if((word !== 'a') && (word !== 'e') && (word !== 'i') && (word !== 'o') && (word !== 'u')){
+            bucket.push(str.substring(x, x + 1));
+        }
+    }
+
+    return bucket.join('');
+}
+
+console.log(createObject(fruits));
