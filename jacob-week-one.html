@@ -11,8 +11,18 @@
 
 </div>
 <script>
-
-
+   const sevenNine = (array) => {
+       let newNum = array[0];
+       let weirdArray = [];
+       for (var i = 1; i < array.length; i++) {
+           if (array[i] < newNum) {
+               newNum += array[i];
+               console.log("new number is " + newNum);
+           } else weirdArray.push(array[i]);
+       } weirdArray.unshift(newNum);
+            console.log(weirdArray);
+       };
+sevenNine([1,2,3]);
 
 </script>
 </body>
