@@ -7,7 +7,8 @@
 <body>
 
 <div id="one">
-<img src="edaXercise.png" height="400px">
+<img src="edaXercise.png" height="420px">
+   <img src="ex2.png" height="420px">
 
 </div>
 <script>
@@ -18,10 +19,12 @@
            if (array[i] < newNum) {
                newNum += array[i];
                console.log("new number is " + newNum);
-           } else weirdArray.push(array[i]);
-       } weirdArray.unshift(newNum);
-            console.log(weirdArray);
-       };
+           } else
+               weirdArray.push(array[i]);
+       }
+       weirdArray.unshift(newNum);
+       console.log(weirdArray);
+   };
 sevenNine([1,2,3]);
 
 </script>
