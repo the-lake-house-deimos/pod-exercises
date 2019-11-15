@@ -59,16 +59,25 @@ const testJackpot = result => {
     return mySet.size === 1;
 };
 
+console.log(jackpotTest1);
 console.log(testJackpot(jackpotTest1));
+console.log(jackpotTest2);
 console.log(testJackpot(jackpotTest2));
+console.log(jackpotTest3);
 console.log(testJackpot(jackpotTest3));
+console.log(jackpotTest4);
 console.log(testJackpot(jackpotTest4));
+console.log(jackpotTest5);
 console.log(testJackpot(jackpotTest5));
+console.log(jackpotTest6);
 console.log(testJackpot(jackpotTest6));
+console.log(jackpotTest7);
 console.log(testJackpot(jackpotTest7));
+console.log(jackpotTest8);
 console.log(testJackpot(jackpotTest8));
+console.log(jackpotTest9);
 console.log(testJackpot(jackpotTest9));
+console.log(jackpotTest10);
 console.log(testJackpot(jackpotTest10));
-
 
 // })();
