@@ -61,13 +61,13 @@ with one item from each group. Order does not matter.
 // }
 
 // TODO: Uncomment here
-// const combinations = (...args) => args.reduce((accumulate, argument) => argument === 0 ? accumulate : accumulate * argument, 1);
-//
-// console.log(combinations(5, 5,)); // (25)
-// console.log(combinations(2, 3)); // (6)
-// console.log(combinations(3, 7, 4)); // (21)(84)
-// console.log(combinations(2, 3, 4, 5)); // (6)(24)(120)
-// console.log(combinations(6, 7, 0)); // 42
+const combinations = (...args) => args.reduce((accumulate, argument) => argument === 0 ? accumulate : accumulate * argument, 1);
+
+console.log(combinations(5, 5,)); // (25)
+console.log(combinations(2, 3)); // (6)
+console.log(combinations(3, 7, 4)); // (21)(84)
+console.log(combinations(2, 3, 4, 5)); // (6)(24)(120)
+console.log(combinations(6, 7, 0)); // 42
 
 // TODO 3
 
@@ -98,16 +98,16 @@ const getBestStudent = (studentClass) => {
     // Convert object into an iterable array
     const students = Object.entries(studentClass);
     // initialize first student name
-    let topStudentName=students[0][0];
+    let topStudentName = students[0][0];
     // top student container w/name and avg
-    let topStudent=[];
+    let topStudent = [];
 
     students.forEach(function (student) {
         let average = {
             name: student[0],
-            average: student[1].reduce((accumulation, testScore) => {
+            average: Math.round(student[1].reduce((accumulation, testScore) => {
                 return accumulation + testScore;
-            },0)
+            }, 0) / student[1].length)
         };
         return studentAvgs.push(average);
     });
