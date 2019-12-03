@@ -156,3 +156,39 @@ console.log(characterMapping("canine"), [0, 1, 2, 3, 2, 4]);
 console.log(characterMapping("hohoho"), [0, 1, 0, 1, 0, 1]);
 console.log(characterMapping("hmmmmm"), [0, 1, 1, 1, 1, 1]);
 console.log(characterMapping(""), []);
+
+//Write a function that groups a string into parentheses cluster. Each cluster should be balanced.
+function split(str) {
+    let all = str.split("");
+    let result = [];
+    let counter = 0;
+    let each = "";
+
+    for(let x=0; x<all.length; x++){
+        if(all[x] === "("){
+            counter++;
+            each += all[x];
+        }else if(all[x] === ")" && counter !== 0){
+            each += all[x];
+            counter--;
+        }
+
+        if(counter === 0){
+            result.push(each);
+            each = "";
+        }
+    }
+
+    return result;
+}
+
+console.log(split("()()()"), ["()", "()", "()"]);
+console.log(split(""), []);
+console.log(split("()()(())"), ["()", "()", "(())"]);
+console.log(split("(())(())"), ["(())", "(())"]);
+console.log(split("((()))"), ["((()))"]);
+console.log(split("()(((((((((())))))))))"), ["()", "(((((((((())))))))))"]);
+console.log(split("((())()(()))(()(())())(()())"), ["((())()(()))", "(()(())())", "(()())"]);
+console.log(split("((()))(())()()(()())"), ["((()))", "(())", "()", "()", "(()())"]);
+console.log(split("((())())(()(()()))"), ["((())())", "(()(()()))"]);
+console.log(split("(()(()()))()(((()))()(()))(()((()))(())())"), ["(()(()()))", "()", "(((()))()(()))", "(()((()))(())())"]);
