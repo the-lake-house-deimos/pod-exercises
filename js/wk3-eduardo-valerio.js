@@ -192,3 +192,50 @@ console.log(split("((())()(()))(()(())())(()())"), ["((())()(()))", "(()(())())"
 console.log(split("((()))(())()()(()())"), ["((()))", "(())", "()", "()", "(()())"]);
 console.log(split("((())())(()(()()))"), ["((())())", "(()(()()))"]);
 console.log(split("(()(()()))()(((()))()(()))(()((()))(())())"), ["(()(()()))", "()", "(((()))()(()))", "(()((()))(())())"]);
+
+function numToEng(n) {
+    let digits = n.toString().split("");
+    let hundreds = ["","one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eigth hundred", "nine hundred"];
+    let tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"];
+    let teens = ["ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eigthteen", "nineteen"];
+    let ones = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eigth", "nine"];
+    let english = "";
+
+    switch(digits.length){
+        case 1:
+
+            english = ones[parseInt(digits[0])];
+            break;
+
+        case 2:
+
+            if(digits[0] === "1"){
+                english = teens[parseInt(digits[1])];
+            }else{
+                english = tens[parseInt(digits[0])]+ " " + ones[parseInt(digits[1])]
+            }
+            break;
+
+        case 3:
+
+            english = hundreds[parseInt(digits[0])] + " ";
+
+            if(digits[1] === "1"){
+                english += teens[parseInt(digits[2])];
+            }else if(digits[1] === "0"){
+                english += ones[parseInt(digits[2])];
+            }else{
+                english += tens[parseInt(digits[1])]+ " " + ones[parseInt(digits[2])]
+            }
+            break;
+
+    }
+
+    return english;
+}
+
+console.log(numToEng(0), "zero");
+console.log(numToEng(26), "twenty six");
+console.log(numToEng(519), "five hundred nineteen");
+console.log(numToEng(106), "one hundred six");
+console.log(numToEng(999), "nine hundred ninety nine");
